@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/DIP/DIP.iml" filepath="$PROJECT_DIR$/DIP/DIP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Dependencies/Dependencies.iml" filepath="$PROJECT_DIR$/Dependencies/Dependencies.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ISP/ISP.iml" filepath="$PROJECT_DIR$/ISP/ISP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Immutable/Immutable.iml" filepath="$PROJECT_DIR$/Immutable/Immutable.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LSP/LSP.iml" filepath="$PROJECT_DIR$/LSP/LSP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LoD/LoD.iml" filepath="$PROJECT_DIR$/LoD/LoD.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OCP/OCP.iml" filepath="$PROJECT_DIR$/OCP/OCP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SRP/SRP.iml" filepath="$PROJECT_DIR$/SRP/SRP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/oo-principles.iml" filepath="$PROJECT_DIR$/.idea/oo-principles.iml" />
+    </modules>
+  </component>
+</project>

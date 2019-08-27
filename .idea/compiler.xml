@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Immutable" />
+        <module name="DIP" />
+        <module name="ISP" />
+        <module name="LoD" />
+        <module name="OCP" />
+        <module name="LSP" />
+        <module name="SRP" />
+        <module name="Dependencies" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Dependencies" target="8" />
+      <module name="DIP" target="1.7" />
+      <module name="Immutable" target="1.7" />
+      <module name="ISP" target="1.7" />
+      <module name="LoD" target="1.7" />
+      <module name="LSP" target="1.7" />
+      <module name="OCP" target="1.7" />
+      <module name="SRP" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
