@@ -7,6 +7,7 @@ import java.util.Date;
  * @project oo-principles
  */
 public interface CacheWithUseage {
+
     Iterable<String> getKeys();
 
     Date getLastAccess(String key);

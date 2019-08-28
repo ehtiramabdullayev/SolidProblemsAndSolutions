@@ -10,4 +10,5 @@ public interface Cache<T> {
     void clear(String key);
 
     void clearAll();
+
 }

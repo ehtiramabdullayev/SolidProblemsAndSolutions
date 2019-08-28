@@ -5,10 +5,14 @@ import com.solution.cache.*;
 public class Application {
 
 	public static void main(String[] args) {
-		Cache<String> stringCache = new CacheWithUseageImpl<>();
+		CacheWithUseageImpl<String> stringCache = new CacheWithUseageImpl<>();
 		use(stringCache);
-		monitor((CacheWithUseageImpl) stringCache);
-		winLottery((WinnableLottery) stringCache);
+		monitor(stringCache);
+		winLottery(stringCache);
+
+		Cache<String> bestCache = new BestCache<>();
+		use(bestCache);
+
 	}
 
 	private static void monitor(CacheWithUseage stringCache) {
