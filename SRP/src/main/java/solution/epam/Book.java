@@ -3,77 +3,23 @@ package solution.epam;
 
 public class Book {
 
-    private String author;
+    private final String author;
 
-    private String authorDescription;
+    private final String authorDescription;
 
-    private int yearOfPublication;
+    private final int yearOfPublication;
 
-    private String title;
+    private final String title;
 
-    private String description;
-
-    public Book(BookBuilder bookBuilder) {
-        this.author = bookBuilder.author;
-        this.authorDescription = bookBuilder.authorDescription;
-        this.yearOfPublication = bookBuilder.yearOfPublication;
-        this.title = bookBuilder.title;
-        this.description = bookBuilder.description;
-    }
+    private final String description;
 
 
-    /////
-
-    public static class BookBuilder {
-        private String author;
-
-        private String authorDescription;
-
-        private int yearOfPublication;
-
-        private String title;
-
-        private String description;
-
-        public BookBuilder() {
-        }
-
-        public static BookBuilder newInstance() {
-            return new BookBuilder();
-        }
-
-        public BookBuilder setAuthor(String author) {
-            this.author = author;
-            return this;
-        }
-
-        public BookBuilder setAuthorDescription(String authorDescription) {
-            this.authorDescription = authorDescription;
-            return this;
-
-        }
-
-        public BookBuilder setYearOfPublication(int yearOfPublication) {
-            this.yearOfPublication = yearOfPublication;
-            return this;
-
-        }
-
-        public BookBuilder setTitle(String title) {
-            this.title = title;
-            return this;
-
-        }
-
-        public BookBuilder setDescription(String description) {
-            this.description = description;
-            return this;
-
-        }
-
-        public Book build() {
-            return new Book(this);
-        }
+    public Book(String author, String authorDescription, int yearOfPublication, String title, String description) {
+        this.author = author;
+        this.authorDescription = authorDescription;
+        this.yearOfPublication = yearOfPublication;
+        this.title = title;
+        this.description = description;
     }
 
     @Override
