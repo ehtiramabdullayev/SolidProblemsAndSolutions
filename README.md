@@ -1,1 +1,1 @@
-# SolidProblemsAndSolutions
+# Solid problems and solutions
