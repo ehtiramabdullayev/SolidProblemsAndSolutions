@@ -14,19 +14,30 @@ import java.util.stream.Collectors;
 public class RoleManager {
 
     public Set<Role> getElevatedRoles() {
-        return new HashSet<>(Arrays.asList(Role.values())).stream().filter(role -> new ElevatedRolesFilter().elevate(role)).collect(Collectors.toSet());
+        return new HashSet<>(Arrays.asList(Role.values()))
+                .stream()
+                .filter(role -> new ElevatedRolesFilter().elevate(role))
+                .collect(Collectors.toSet());
     }
 
     public Set<Role> getRolesAboveAccessLevel(int accessLevel) {
-        return new HashSet<>(Arrays.asList(Role.values())).stream().filter(role -> new RolesAboveAccessLevelFilter().elevate(role, accessLevel)).collect(Collectors.toSet());
+        return new HashSet<>(Arrays.asList(Role.values()))
+                .stream()
+                .filter(role -> new RolesAboveAccessLevelFilter().elevate(role, accessLevel))
+                .collect(Collectors.toSet());
     }
 
     public Set<Role> getRolesBelowAccessLevel(int accessLevel) {
-        return new HashSet<>(Arrays.asList(Role.values())).stream().filter(role -> new RolesBelowAccessLevelFilter().elevate(role, accessLevel)).collect(Collectors.toSet());
+        return new HashSet<>(Arrays.asList(Role.values()))
+                .stream().filter(role -> new RolesBelowAccessLevelFilter().elevate(role, accessLevel))
+                .collect(Collectors.toSet());
 
     }
 
     public Set<Role> getElevatedRolesOnAccessLevel(int accessLevel) {
-        return new HashSet<>(Arrays.asList(Role.values())).stream().filter(role -> new ElevatedRolesOnAccessLevelFilter().elevate(role, accessLevel)).collect(Collectors.toSet());
+        return new HashSet<>(Arrays.asList(Role.values()))
+                .stream()
+                .filter(role -> new ElevatedRolesOnAccessLevelFilter().elevate(role, accessLevel))
+                .collect(Collectors.toSet());
     }
 }
