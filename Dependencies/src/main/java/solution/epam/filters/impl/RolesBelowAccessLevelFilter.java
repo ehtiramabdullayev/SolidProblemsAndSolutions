@@ -11,9 +11,6 @@ public class RolesBelowAccessLevelFilter implements RoleFilterWithAccessLevel {
 
     @Override
     public boolean elevate(Role currentRole, int accessLevel) {
-        if (currentRole.getAccessLevel() < accessLevel && currentRole.isEnabled()) {
-            return true;
-        }
-        return false;
+        return currentRole.getAccessLevel() < accessLevel && currentRole.isEnabled();
     }
 }

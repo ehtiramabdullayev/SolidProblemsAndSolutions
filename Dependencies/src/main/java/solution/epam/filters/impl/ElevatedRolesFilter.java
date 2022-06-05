@@ -10,10 +10,7 @@ import solution.epam.filters.RoleFilter;
 public class ElevatedRolesFilter implements RoleFilter {
     @Override
     public boolean elevate(Role currentRole) {
-        if (currentRole.isEnabled() && currentRole.isElevated()) {
-            return true;
-        }
-        return false;
+        return currentRole.isEnabled() && currentRole.isElevated();
     }
 
 }

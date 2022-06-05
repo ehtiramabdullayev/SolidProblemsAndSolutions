@@ -10,11 +10,7 @@ import solution.epam.filters.RoleFilterWithAccessLevel;
 public class RolesAboveAccessLevelFilter implements RoleFilterWithAccessLevel {
     @Override
     public boolean elevate(Role currentRole, int accessLevel) {
-        if (currentRole.getAccessLevel() >= accessLevel) {
-            if (currentRole.isEnabled()) {
-                return true;
-            }
-        }
+        if (currentRole.getAccessLevel() >= accessLevel) return currentRole.isEnabled();
         return false;
     }
 }
