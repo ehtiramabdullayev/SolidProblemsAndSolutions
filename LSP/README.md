@@ -114,3 +114,88 @@ Let's refactor the code to make "good" design using LSP?
 
 Class diagram
 
+![liskovssubstitution_principle_bad](https://user-images.githubusercontent.com/7686353/173936836-7c0e16e8-9748-4a50-aee6-34e98c13c1b3.png)
+
+
+
+MediaPlayer.java
+```
+public class MediaPlayer {
+
+    // Play audio implementation
+    public void playAudio() {
+        System.out.println("Playing audio...");
+    }
+}
+```
+DivMediaPlayer.java
+```
+public class DivMediaPlayer extends VideoMediaPlayer {
+// DivMediaPlayer code goes here
+}
+```
+VlcMediaPlayer.java
+```
+public class VlcMediaPlayer extends VideoMediaPlayer {
+// VlcMediaPlayer code goes here
+}
+```
+VideoMediaPlayer.java
+```
+public class VideoMediaPlayer extends MediaPlayer {
+
+    // Play video implementation
+    public void playVideo() {
+        System.out.println("Playing video...");
+    }
+}
+```
+WinampMediaPlayer.java
+```
+public class WinampMediaPlayer extends AudioMediaPlayer {
+// WinampMediaPlayer code goes here
+}
+```
+VideoUnsupportedException.java
+```
+public class VideoUnsupportedException extends RuntimeException {
+
+    private static final long serialVersionUID = 1 L;
+
+}
+```
+ClientTestProgram.java
+```
+public class ClientTestProgram {
+
+    public static void main(String[] args) {
+
+        // Created list of video players
+        List < VideoMediaPlayer > allPlayers = new ArrayList < VideoMediaPlayer > ();
+        allPlayers.add(new VlcMediaPlayer());
+        allPlayers.add(new DivMediaPlayer());
+
+        // Play video in all players
+        playVideoInAllMediaPlayers(allPlayers);
+
+        // Well - all works as of now...... :-)
+        System.out.println("---------------------------");
+
+        // Now adding new Winamp player. If you uncomment below line,
+        // it would give compile time error as can't add audio player in list of video players.
+        // allPlayers.add(new WinampMediaPlayer()); 
+    }
+
+    /**
+     * This method is playing video in all players
+     * 
+     * @param allPlayers
+     */
+    public static void playVideoInAllMediaPlayers(List < VideoMediaPlayer > allPlayers) {
+
+        for (VideoMediaPlayer player: allPlayers) {
+            player.playVideo();
+        }
+    }
+}
+```
