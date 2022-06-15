@@ -1,4 +1,6 @@
-# Intent/Definition
+# Interface Segregation Principle in Java with Example
+
+## Intent/Definition
 The ``` Interface Segregation Principle``` states that clients should not be forced to implement interfaces they don't use. ISP splits interfaces that are very large into smaller and more specific ones so that clients will only have to know about the methods that are of interest to them.
 
 
@@ -90,3 +92,86 @@ public class WinampMediaPlayer implements MediaPlayer {
 Let's refactor the code to make "good" design using the Interface Segregation Principle.
 
 Class diagram
+
+![interfacesegregation_principle_good](https://user-images.githubusercontent.com/7686353/173933600-c66030b7-9d42-459e-9261-b93d986b6254.png)
+
+
+Refer below steps to understand the source code and real-world scenarios.
++ Step 1: Interface for playing video
++ Step 2: Interface for playing audio.
++ Step 3 : Div Media player implements both VideoMediaPlayer,AudioMediaPlayer
++ Step 4: VLC Media player implements both VideoMediaPlayer and AudioMediaPlayer.
++ Step 5: Winamp Media player only implements AudioMediaPlayer. Here Winamp Media player only implements Audio Media Player as it supports.
+
+AudioMediaPlayer.java
+ ``` 
+public interface AudioMediaPlayer {
+    public void playAudio();
+}
+ ``` 
+
+VideoMediaPlayer.java
+ ``` 
+public interface VideoMediaPlayer {
+    // Play video implementation
+    public void playVideo();
+
+}
+ ``` 
+
+DivMediaPlayer.java
+ ``` 
+
+public class DivMediaPlayer implements VideoMediaPlayer, AudioMediaPlayer {
+
+    @Override
+    public void playVideo() {
+        System.out.println(" Playing video ..........");
+
+    }
+
+    @Override
+    public void playAudio() {
+        System.out.println(" Playing audio ..........");
+
+    }
+}
+ ``` 
+
+
+VlcMediaPlayer.java
+ ``` 
+public class VlcMediaPlayer implements VideoMediaPlayer, AudioMediaPlayer {
+
+    @Override
+    public void playVideo() {
+        System.out.println(" Playing video ..........");
+
+    }
+
+    @Override
+    public void playAudio() {
+        System.out.println(" Playing audio ..........");
+
+    }
+}
+ ``` 
+
+
+WinampMediaPlayer.java
+ ``` 
+public class WinampMediaPlayer implements AudioMediaPlayer {
+
+    @Override
+    public void playAudio() {
+        System.out.println(" Playing audio........");
+
+    }
+}
+ ``` 
+
+---- 
+## Summary of Interface Segregation Principle
+
+Both the Interface Segregation Principle and Single Responsibility Principle have the same goal: ensuring small, focused, and highly cohesive software components. The difference is that the Single Responsibility Principle is concerned with classes, while the Interface Segregation Principle is concerned with interfaces. Interface Segregation Principle is easy to understand and simple to follow. But, identifying the distinct interfaces can sometimes be a challenge as careful considerations are required to avoid the proliferation of interfaces. Therefore, while writing an interface, consider the possibility of implementation classes having different sets of behaviors, and if so, segregate the interface into multiple interfaces, each having a specific role.
+
