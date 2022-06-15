@@ -31,12 +31,14 @@ we are not modifying existing code here, we are just extending as per our requir
 
 
 Class diagram
-![](C:/Users/ehtir/Desktop/openclosed_principle_good.png)
+
+![openclosed_principle_good](https://user-images.githubusercontent.com/7686353/173940197-71cca05d-0b56-4c9d-944f-a3b843a637ad.png)
+
 
 IConnetionProvider.java
 ```
 public interface IConnetionProvider {
-public Connection establishconnection();
+    public Connection establishconnection();
 }
 ```
 H2ConnectionProvider.java
