@@ -6,10 +6,10 @@ So, what is SOLID and how does it help us write better code? Simply put, Martin 
 
 The following five concepts make up our SOLID principles:
 
-1. Single Responsibility
-2. Open/Closed
-3. Liskov Substitution
-4. Interface Segregation
-5. Dependency Inversion
+1. [Single Responsibility](https://github.com/ehtiramabdullayev/SolidProblemsAndSolutions/tree/master/SRP)
+2. [Open/Closed](https://github.com/ehtiramabdullayev/SolidProblemsAndSolutions/tree/master/OCP)
+3. [Liskov Substitution](https://github.com/ehtiramabdullayev/SolidProblemsAndSolutions/tree/master/LSP)
+4. [Interface Segregation](https://github.com/ehtiramabdullayev/SolidProblemsAndSolutions/tree/master/ISP)
+5. [Dependency Inversion](https://github.com/ehtiramabdullayev/SolidProblemsAndSolutions/tree/master/DIP)
 
 While these concepts may seem daunting, they can be easily understood with some simple code examples. In the following sections, we'll take a deep dive into these principles, with a quick Java example to illustrate each one.
