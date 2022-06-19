@@ -14,7 +14,8 @@ To fully understand the dependency inversion principle, we should first understa
 
 A software module is a coding unit that contains one or more routines. Regularly a module has just one responsibility in the whole system. You build a system using multiple modules, which can be grouped in different layers. Let's have a graphic example of this:
 
-{pic1_placeholder}
+![1](https://user-images.githubusercontent.com/7686353/174494413-74cbe6cc-e7a1-42c8-a6fb-00d5b5102c5a.jpeg)
+
 
 In this example, there are five different modules, we have the Calculator module, as well as the Add, Subtract, Multiply and Divide module.
 
@@ -36,7 +37,8 @@ The first segment of our principle says "High-level modules should not depend on
 
 The second segment of the DIP principle says "Abstractions should not depend upon on details. Details should depend on abstractions". To accomplish this rule, we must define the abstraction as an interface (abstraction), not as a class (detail).
 
-{pic2_placeholder}
+![2](https://user-images.githubusercontent.com/7686353/174494422-6615d8dd-5748-49b9-9cfe-0aafee4a83d6.jpeg)
+
 
 Now there is loose coupling between the Calculator module and the Operations modules. Now you can change one side of the dependency without affecting the other side. You can also add more operations, as long as they implement the Operation abstraction, without affecting the Calculator module.
 
