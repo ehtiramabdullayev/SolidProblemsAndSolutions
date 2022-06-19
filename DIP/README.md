@@ -45,3 +45,168 @@ Now there is loose coupling between the Calculator module and the Operations mod
 ## Coding example
 ### Bad Design
 Each calculator operation is represented as a low-level module:
+
+```
+public class AddOperation {
+
+    /**
+     * Adds two numbers.
+     * @param numA          First number.
+     * @param numB          Second number.
+     * @return              Result.
+     */
+    public double add(double numA, double numB){
+        return numA + numB;
+    }
+}
+
+public class SubtractOperation {
+
+    /**
+     * Subtracts two numbers.
+     * @param numA          First number.
+     * @param numB          Second number.
+     * @return              Result.
+     */
+    public double subtract(double numA, double numB){
+        return numA - numB;
+    }
+}
+
+public class MultiplyOperation {
+
+    /**
+     * Multiplies two numbers.
+     * @param numA          First number.
+     * @param numB          Second number.
+     * @return              Result.
+     */
+    public double multiply(double numA, double numB){
+        return numA * numB;
+    }
+}
+
+public class DivideOperation {
+
+    /**
+     * Divides two numbers.
+     * @param numA          First number.
+     * @param numB          Second number.
+     * @return              Result.
+     */
+    public double divide(double numA, double numB){
+        return numA / numB;
+    }
+
+}
+```
+The violation of the Dependency Inversion Principle is noticeable in the Calculator class. If we want to add a new calculator operation, we must modify the Calculator class, which violates the Open/Closed principle.
+
+```
+public class Calculator {
+
+    public enum Operation{
+        ADD, SUBTRACT, MULTIPLY, DIVIDE
+    }
+
+
+    /**
+     * Performs a two numbers operation.
+     * @param numA              First number.
+     * @param numB              Second number.
+     * @param operation         Type of operation.
+     * @return                  Operation's result.
+     */
+    public double calculate(double numA, double numB, Operation operation){
+
+        double result = 0;
+
+        switch(operation){
+
+            case ADD:
+                AddOperation addOp = new AddOperation();
+                result = addOp.add(numA, numB);
+                break;
+            case SUBTRACT:
+                SubtractOperation subOp = new SubtractOperation();
+                result = subOp.subtract(numA, numB);
+                break;
+            case MULTIPLY:
+                MultiplyOperation multOp = new MultiplyOperation();
+                result = multOp.multiply(numA, numB);
+                break;
+            case DIVIDE:
+                DivideOperation divOp = new DivideOperation();
+                result = divOp.divide(numA, numB);
+                break;
+
+        }
+
+        return result;
+
+    }
+}
+```
+To solve this issue and comply with the DIP and OCP, we must add an abstraction and modify the dependencies, so both, high and low-level modules depend on the abstraction.
+
+### Good Design
+
+```
+public interface CalculatorOperation {
+
+    public double calculate(double numbA, double numB);
+
+}
+
+public class AddOperation implements CalculatorOperation {
+
+    @Override
+    public double calculate(double numbA, double numB) {
+        return numbA + numB;
+    }   
+}
+
+public class SubtractOperation implements CalculatorOperation {
+
+    @Override
+    public double calculate(double numbA, double numB) {
+        return numbA - numB;
+    }
+}
+
+public class MultiplyOperation implements CalculatorOperation {
+
+    @Override
+    public double calculate(double numbA, double numB) {
+        return numbA * numB;
+    }  
+}
+
+public class DivideOperation implements CalculatorOperation {
+
+    @Override
+    public double calculate(double numbA, double numB) {
+        return numbA / numB;
+    }
+}
+```
+Now the Calculator class complies with the Dependency Inversion Principle.
+
+```
+public class Calculator {
+
+    /**
+     * Performs a two numbers operation.
+     * @param numA              First number.
+     * @param numB              Second number.
+     * @param operation         Type of operation.
+     * @return                  Operation's result.
+     */
+    public double calculate(double numA, double numB, CalculatorOperation operation){
+        return operation.calculate(numB, numB);
+    }
+}
+```
+
+### Final thoughts
+We've gone through the five SOLID principles, you've seen the benefits and disadvantages of each one. Remember that SOLID principles were thought to help you achieve flexibility, readability, and reusability. Some of these principles are the cornerstone of multiple frameworks and architectures and you will benefit from implementing them. But, also remember that excessive or incorrect use of these principles will overcomplicate your code. You must evaluate each use case and decide which is best for your solution.
