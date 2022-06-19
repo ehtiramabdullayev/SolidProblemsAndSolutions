@@ -31,7 +31,7 @@ First, let's see "bad" design and implementation.
 
 MediaPlayer.java
 
- ``` 
+ ```java
  public interface MediaPlayer {
      public void playAudio();
      public void playVideo();
@@ -40,7 +40,7 @@ MediaPlayer.java
 
 DivMediaPlayer.java
 
- ``` 
+ ```java
 public class DivMediaPlayer implements MediaPlayer {
     @Override
     public void playAudio() {
@@ -55,7 +55,7 @@ public class DivMediaPlayer implements MediaPlayer {
  ``` 
 
 VlcMediaPlayer.java
- ``` 
+ ``` java
 public class VlcMediaPlayer implements MediaPlayer {
     @Override
     public void playAudio() {
@@ -72,7 +72,7 @@ public class VlcMediaPlayer implements MediaPlayer {
  ``` 
 
 WinampMediaPlayer.java
- ``` 
+ ``` java
 public class WinampMediaPlayer implements MediaPlayer {
 
     // Play video is not supported in Winamp player
@@ -104,14 +104,14 @@ Refer below steps to understand the source code and real-world scenarios.
 + Step 5: Winamp Media player only implements AudioMediaPlayer. Here Winamp Media player only implements Audio Media Player as it supports.
 
 AudioMediaPlayer.java
- ``` 
+ ``` java
 public interface AudioMediaPlayer {
     public void playAudio();
 }
  ``` 
 
 VideoMediaPlayer.java
- ``` 
+ ``` java
 public interface VideoMediaPlayer {
     // Play video implementation
     public void playVideo();
@@ -120,7 +120,7 @@ public interface VideoMediaPlayer {
  ``` 
 
 DivMediaPlayer.java
- ``` 
+ ``` java
 
 public class DivMediaPlayer implements VideoMediaPlayer, AudioMediaPlayer {
 
@@ -140,7 +140,7 @@ public class DivMediaPlayer implements VideoMediaPlayer, AudioMediaPlayer {
 
 
 VlcMediaPlayer.java
- ``` 
+ ``` java
 public class VlcMediaPlayer implements VideoMediaPlayer, AudioMediaPlayer {
 
     @Override
@@ -159,7 +159,7 @@ public class VlcMediaPlayer implements VideoMediaPlayer, AudioMediaPlayer {
 
 
 WinampMediaPlayer.java
- ``` 
+ ``` java
 public class WinampMediaPlayer implements AudioMediaPlayer {
 
     @Override

@@ -18,7 +18,7 @@ First, let's see "bad" design and implementation.
 #### Bad Code Design
 LSP is violated here! Why? Logically WinampMediaPlayer only supports playing audio. So what's wrong with the overriding playVideo method of a super class?
 MediaPlayer.java
-```
+```java
 public class MediaPlayer {
 
     // Play audio implementation
@@ -34,14 +34,14 @@ public class MediaPlayer {
 ```
 
 VlcMediaPlayer.java
-```
+```java
 public class VlcMediaPlayer extends MediaPlayer {
 
 }
 ```
 
 WinampMediaPlayer.java
-```
+```java
 public class WinampMediaPlayer extends MediaPlayer {
 
     // Play video is not supported in Winamp player
@@ -52,16 +52,16 @@ public class WinampMediaPlayer extends MediaPlayer {
 ```
 
 VideoUnsupportedException.java
-```
+```java
 public class VideoUnsupportedException extends RuntimeException {
 
-    private static final long serialVersionUID = 1 L;
+    private static final long serialVersionUID = 1L;
 
 }
 ```
 
 ClientTestProgram.java
-```
+```java
 public class ClientTestProgram {
 
     public static void main(String[] args) {
@@ -119,7 +119,7 @@ Class diagram
 
 
 MediaPlayer.java
-```
+```java
 public class MediaPlayer {
 
     // Play audio implementation
@@ -129,19 +129,19 @@ public class MediaPlayer {
 }
 ```
 DivMediaPlayer.java
-```
+```java
 public class DivMediaPlayer extends VideoMediaPlayer {
 // DivMediaPlayer code goes here
 }
 ```
 VlcMediaPlayer.java
-```
+```java
 public class VlcMediaPlayer extends VideoMediaPlayer {
 // VlcMediaPlayer code goes here
 }
 ```
 VideoMediaPlayer.java
-```
+```java
 public class VideoMediaPlayer extends MediaPlayer {
 
     // Play video implementation
@@ -151,21 +151,21 @@ public class VideoMediaPlayer extends MediaPlayer {
 }
 ```
 WinampMediaPlayer.java
-```
+```java
 public class WinampMediaPlayer extends AudioMediaPlayer {
 // WinampMediaPlayer code goes here
 }
 ```
 VideoUnsupportedException.java
-```
+```java
 public class VideoUnsupportedException extends RuntimeException {
 
-    private static final long serialVersionUID = 1 L;
+    private static final long serialVersionUID = 1L;
 
 }
 ```
 ClientTestProgram.java
-```
+```java
 public class ClientTestProgram {
 
     public static void main(String[] args) {

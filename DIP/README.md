@@ -46,7 +46,7 @@ Now there is loose coupling between the Calculator module and the Operations mod
 ### Bad Design
 Each calculator operation is represented as a low-level module:
 
-```
+```java
 public class AddOperation {
 
     /**
@@ -102,7 +102,7 @@ public class DivideOperation {
 ```
 The violation of the Dependency Inversion Principle is noticeable in the Calculator class. If we want to add a new calculator operation, we must modify the Calculator class, which violates the Open/Closed principle.
 
-```
+```java
 public class Calculator {
 
     public enum Operation{
@@ -151,7 +151,7 @@ To solve this issue and comply with the DIP and OCP, we must add an abstraction 
 
 ### Good Design
 
-```
+```java
 public interface CalculatorOperation {
 
     public double calculate(double numbA, double numB);
@@ -192,7 +192,7 @@ public class DivideOperation implements CalculatorOperation {
 ```
 Now the Calculator class complies with the Dependency Inversion Principle.
 
-```
+```java
 public class Calculator {
 
     /**

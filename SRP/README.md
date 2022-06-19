@@ -6,7 +6,7 @@ The single responsibility principle states that every Java class must perform a 
 Suppose, Student is a class having three methods namely printDetails(), calculatePercentage(), and addStudent(). Hence, the Student class has three responsibilities to print the details of students, calculate percentages, and database. By using the single responsibility principle, we can separate these functionalities into three separate classes to fulfill the goal of the principle.
 
 Student.java
-```
+```java
 public class Student {
     public void printDetails() {
     //functionality of the method
@@ -24,7 +24,7 @@ public class Student {
 The above code snippet violates the single responsibility principle. To achieve the goal of the principle, we should implement a separate class that performs a single functionality only.
 
 Student.java
-```
+```java
 public class Student {
     public void addStudent() {
         //functionality of the method
@@ -32,7 +32,7 @@ public class Student {
 }
 ```
 PrintStudentDetails.java
-```
+```java
 public class PrintStudentDetails {
     public void printDetails() {
         //functionality of the method  
@@ -40,7 +40,7 @@ public class PrintStudentDetails {
 }  
 ```
 Percentage.java
-```
+```java
 public class Percentage {
     public void calculatePercentage() {
         //functionality of the method  

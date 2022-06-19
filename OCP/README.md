@@ -36,13 +36,13 @@ Class diagram
 
 
 IConnetionProvider.java
-```
+```java
 public interface IConnetionProvider {
     public Connection establishconnection();
 }
 ```
 H2ConnectionProvider.java
-```
+```java
 public class H2ConnectionProvider implements IConnetionProvider{
 
     public Connection establishconnection() {
@@ -52,7 +52,7 @@ public class H2ConnectionProvider implements IConnetionProvider{
 }
 ```
 MySQLConnectionProvider.java
-```
+```java
 public class MySQLConnectionProvider implements IConnetionProvider{
 
     public Connection establishconnection() {
@@ -62,7 +62,7 @@ public class MySQLConnectionProvider implements IConnetionProvider{
 }
 ```
 OracleConnectionProvider.java
-```
+```java
 public class OracleConnectionProvider implements IConnetionProvider{
 
     public Connection establishconnection() {
