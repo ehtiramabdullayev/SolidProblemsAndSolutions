@@ -11,6 +11,7 @@ The Interface Segregation Principle represents the “I” of the five SOLID Pri
 
 > Many client-specific interfaces are better than one general-purpose interface. When we have non-cohesive interfaces, the ISP guides us to create multiple, smaller, cohesive interfaces.
 
+
 --- 
 ## Interface Segregation Principle Example
  What the ``` Interface Segregation Principle``` says is that your interface should not be bloated with methods that implementing classes don’t require. For such interfaces, also called “fat interfaces”, implementing classes are unnecessarily forced to provide implementations (dummy/empty) even for those methods that they don’t need. In addition, the implementing classes are subject to change when the interface changes. An addition of a method or change to a method signature requires modifying all the implementation classes even if some of them don’t use the method.
